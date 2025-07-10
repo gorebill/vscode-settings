@@ -1,0 +1,98 @@
+{
+  "name": "vscode-settings",
+  "displayName": "VS Code Settings Helper",
+  "description": "A comprehensive VS Code extension for managing workspace configuration files with intelligent property assistance",
+  "version": "1.0.0",
+  "publisher": "gorebill",
+  "author": {
+    "name": "gorebill",
+    "email": "gorebill@example.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gorebill/vscode-settings"
+  },
+  "keywords": [
+    "settings",
+    "configuration",
+    "workspace",
+    "launch",
+    "tasks",
+    "extensions",
+    "helper",
+    "documentation"
+  ],
+  "homepage": "https://github.com/gorebill/vscode-settings#readme",
+  "bugs": {
+    "url": "https://github.com/gorebill/vscode-settings/issues"
+  },
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vscode-settings.openConfigFile",
+        "title": "Open Config File"
+      },
+      {
+        "command": "vscode-settings.createConfigFile",
+        "title": "Create Config File"
+      }
+    ],
+    "views": {
+      "vscode-settings": [
+        {
+          "id": "vscode-settings.configFiles",
+          "name": "VS Code Config Files",
+          "when": "workspaceFolderCount > 0",
+          "visibility": "visible"
+        },
+        {
+          "id": "vscode-settings.helloWorld",
+          "name": "Prop. Helper",
+          "when": "workspaceFolderCount > 0 && vscode-settings.showPropHelper",
+          "visibility": "visible"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "vscode-settings",
+          "title": "VS Code Settings",
+          "icon": "./resources/icon.svg"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.74.0",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "@vscode/test-electron": "^2.2.0",
+    "eslint": "^8.28.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "typescript": "^4.9.4",
+    "vsce": "^2.15.0"
+  }
+}
