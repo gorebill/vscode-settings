@@ -2,7 +2,7 @@
   "name": "vscode-settings",
   "displayName": "VS Code Settings Helper",
   "description": "A comprehensive VS Code extension for managing workspace configuration files with intelligent property assistance",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "publisher": "gorebill",
   "author": {
     "name": "gorebill",
@@ -30,6 +30,7 @@
   "engines": {
     "vscode": "^1.74.0"
   },
+  "icon": "resources/icon.png",
   "categories": [
     "Other"
   ],
@@ -44,6 +45,18 @@
       {
         "command": "vscode-settings.createConfigFile",
         "title": "Create Config File"
+      },
+      {
+        "command": "vscode-settings.applyConfigTemplate",
+        "title": "Apply Configuration Template"
+      },
+      {
+        "command": "vscode-settings.createRecommendedSettings",
+        "title": "Create Recommended Settings"
+      },
+      {
+        "command": "vscode-settings.refreshProjectAnalysis",
+        "title": "Refresh Project Analysis"
       }
     ],
     "views": {
@@ -51,6 +64,12 @@
         {
           "id": "vscode-settings.configFiles",
           "name": "VS Code Config Files",
+          "when": "workspaceFolderCount > 0",
+          "visibility": "visible"
+        },
+        {
+          "id": "vscode-settings.projectRecommendations",
+          "name": "Project Recommendations",
           "when": "workspaceFolderCount > 0",
           "visibility": "visible"
         },

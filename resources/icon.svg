@@ -1,36 +1,54 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
   <!-- 盾牌主体 -->
-  <path d="M12 2L4 6V10.5C4 16.5 7.5 22 12 22C16.5 22 20 16.5 20 10.5V6L12 2Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
-  <path d="M12 3.5L5.5 7V10.5C5.5 15.5 8.5 20 12 20C15.5 20 18.5 15.5 18.5 10.5V7L12 3.5Z" stroke="currentColor" stroke-width="1" fill="none"/>
+  <path d="M64 10L21 32V56C21 88 42 118 64 118C86 118 107 88 107 56V32L64 10Z" stroke="#333333" stroke-width="3" fill="none"/>
+  <path d="M64 18L29 36V56C29 83 45 106 64 106C83 106 99 83 99 56V36L64 18Z" stroke="#333333" stroke-width="2" fill="none"/>
   
   <!-- VS Code 文字 -->
-  <text x="12" y="10" text-anchor="middle" font-family="Arial, sans-serif" font-size="4" font-weight="bold" fill="currentColor">VS</text>
-  <text x="12" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="3" fill="currentColor">Code</text>
+  <text x="64" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#333333">VS</text>
+  <text x="64" y="76" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333333">Code</text>
   
-  <!-- 周围的连接点和圆圈 -->
-  <!-- 代码符号 -->
-  <circle cx="5" cy="4" r="1" stroke="currentColor" stroke-width="0.8" fill="none"/>
-  <path d="M4.2 3.5L4.8 4L4.2 4.5" stroke="currentColor" stroke-width="0.6" fill="none"/>
-  <path d="M5.8 3.5L5.2 4L5.8 4.5" stroke="currentColor" stroke-width="0.6" fill="none"/>
+  <!-- 周围的连接点和符号 -->
+  <!-- 左上角 - 代码符号 -->
+  <circle cx="26" cy="20" r="5" stroke="#333333" stroke-width="2" fill="none"/>
+  <path d="M22 18L26 20L22 22" stroke="#333333" stroke-width="2" fill="none"/>
+  <path d="M30 18L26 20L30 22" stroke="#333333" stroke-width="2" fill="none"/>
   
-  <!-- 齿轮符号 -->
-  <circle cx="19" cy="6" r="1.2" stroke="currentColor" stroke-width="0.8" fill="none"/>
-  <circle cx="19" cy="6" r="0.4" fill="currentColor"/>
-  <path d="M18.4 5.4L18.6 5.6M19.4 5.4L19.6 5.6M19.4 6.6L19.6 6.4M18.4 6.6L18.6 6.4" stroke="currentColor" stroke-width="0.6"/>
+  <!-- 右上角 - 齿轮符号 -->
+  <circle cx="102" cy="32" r="6" stroke="#333333" stroke-width="2" fill="none"/>
+  <circle cx="102" cy="32" r="2" fill="#333333"/>
+  <path d="M98 28L100 30M106 28L104 30M106 36L104 34M98 36L100 34" stroke="#333333" stroke-width="2"/>
+  
+  <!-- 左侧 - 菜单符号 -->
+  <circle cx="16" cy="48" r="4" stroke="#333333" stroke-width="2" fill="none"/>
+  <path d="M13 46H19M13 48H19M13 50H19" stroke="#333333" stroke-width="1.5"/>
+  
+  <!-- 右侧 - X符号 -->
+  <circle cx="112" cy="60" r="4" stroke="#333333" stroke-width="2" fill="none"/>
+  <path d="M109 57L115 63M115 57L109 63" stroke="#333333" stroke-width="2"/>
   
   <!-- 其他连接点 -->
-  <circle cx="3" cy="9" r="0.8" stroke="currentColor" stroke-width="0.8" fill="none"/>
-  <circle cx="21" cy="11" r="0.8" stroke="currentColor" stroke-width="0.8" fill="none"/>
-  <circle cx="2" cy="15" r="0.6" stroke="currentColor" stroke-width="0.8" fill="none"/>
-  <circle cx="22" cy="16" r="0.6" stroke="currentColor" stroke-width="0.8" fill="none"/>
-  <circle cx="4" cy="20" r="0.8" stroke="currentColor" stroke-width="0.8" fill="none"/>
-  <circle cx="20" cy="20" r="0.8" stroke="currentColor" stroke-width="0.8" fill="none"/>
+  <circle cx="15" cy="82" r="3" stroke="#333333" stroke-width="2" fill="none"/>
+  <circle cx="113" cy="90" r="3" stroke="#333333" stroke-width="2" fill="none"/>
+  <circle cx="22" cy="108" r="4" stroke="#333333" stroke-width="2" fill="none"/>
+  <circle cx="106" cy="108" r="4" stroke="#333333" stroke-width="2" fill="none"/>
+  
+  <!-- 顶部连接点 -->
+  <circle cx="44" cy="12" r="3" stroke="#333333" stroke-width="2" fill="none"/>
+  <circle cx="84" cy="12" r="3" stroke="#333333" stroke-width="2" fill="none"/>
   
   <!-- 连接线 -->
-  <path d="M5 4.8L5.5 6.2" stroke="currentColor" stroke-width="0.5" stroke-dasharray="1,1"/>
-  <path d="M18.2 6.8L17 8.5" stroke="currentColor" stroke-width="0.5" stroke-dasharray="1,1"/>
-  <path d="M3.8 9.5L4.2 10.5" stroke="currentColor" stroke-width="0.5" stroke-dasharray="1,1"/>
-  <path d="M20.2 11.5L19.5 13" stroke="currentColor" stroke-width="0.5" stroke-dasharray="1,1"/>
-  <path d="M2.8 15.5L3.5 17.5" stroke="currentColor" stroke-width="0.5" stroke-dasharray="1,1"/>
-  <path d="M21.2 16.5L20.5 18" stroke="currentColor" stroke-width="0.5" stroke-dasharray="1,1"/>
+  <path d="M26 25L32 35" stroke="#333333" stroke-width="1" stroke-dasharray="3,3"/>
+  <path d="M96 36L90 45" stroke="#333333" stroke-width="1" stroke-dasharray="3,3"/>
+  <path d="M20 52L25 60" stroke="#333333" stroke-width="1" stroke-dasharray="3,3"/>
+  <path d="M108 64L103 72" stroke="#333333" stroke-width="1" stroke-dasharray="3,3"/>
+  <path d="M18 85L24 95" stroke="#333333" stroke-width="1" stroke-dasharray="3,3"/>
+  <path d="M110 93L104 103" stroke="#333333" stroke-width="1" stroke-dasharray="3,3"/>
+  <path d="M44 15L52 25" stroke="#333333" stroke-width="1" stroke-dasharray="3,3"/>
+  <path d="M84 15L76 25" stroke="#333333" stroke-width="1" stroke-dasharray="3,3"/>
+  
+  <!-- 额外的装饰性连接点 -->
+  <circle cx="35" cy="115" r="2" stroke="#333333" stroke-width="1.5" fill="none"/>
+  <circle cx="93" cy="115" r="2" stroke="#333333" stroke-width="1.5" fill="none"/>
+  <circle cx="8" cy="65" r="2" stroke="#333333" stroke-width="1.5" fill="none"/>
+  <circle cx="120" cy="45" r="2" stroke="#333333" stroke-width="1.5" fill="none"/>
 </svg>

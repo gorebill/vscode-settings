@@ -2368,87 +2368,9 @@ export function activate(context: vscode.ExtensionContext) {
         updatePropHelperVisibility();
     });
 
-    // Project recommendations provider
-    const projectRecommendationsProvider = new ProjectRecommendationsProvider();
-    vscode.window.createTreeView('vscode-settings.projectRecommendations', {
-        treeDataProvider: projectRecommendationsProvider
-    });
-
-    // Register new commands for project recommendations
-    const applyConfigTemplateCommand = vscode.commands.registerCommand('vscode-settings.applyConfigTemplate', async (template: ConfigTemplate) => {
-        const workspaceFolder = vscode.workspace.workspaceFolders?.[0];
-        if (workspaceFolder) {
-            const vscodeDir = path.join(workspaceFolder.uri.fsPath, '.vscode');
-            const settingsPath = path.join(vscodeDir, 'settings.json');
-            
-            if (!fs.existsSync(vscodeDir)) {
-                fs.mkdirSync(vscodeDir, { recursive: true });
-            }
-            
-            let existingSettings = {};
-            if (fs.existsSync(settingsPath)) {
-                try {
-                    const existingContent = fs.readFileSync(settingsPath, 'utf8');
-                    existingSettings = JSON.parse(existingContent);
-                } catch (error) {
-                    console.error('Failed to parse existing settings:', error);
-                }
-            }
-            
-            const mergedSettings = { ...existingSettings, ...template.content };
-            fs.writeFileSync(settingsPath, JSON.stringify(mergedSettings, null, 4));
-            
-            vscode.window.showInformationMessage(`Applied ${template.name} configuration template`);
-            
-            const document = await vscode.workspace.openTextDocument(settingsPath);
-            vscode.window.showTextDocument(document);
-            configFilesProvider.refresh();
-        }
-    });
-
-    const createRecommendedSettingsCommand = vscode.commands.registerCommand('vscode-settings.createRecommendedSettings', async () => {
-        const workspaceFolder = vscode.workspace.workspaceFolders?.[0];
-        if (workspaceFolder) {
-            const analyzer = new ProjectAnalyzer(workspaceFolder);
-            const detectedTypes = await analyzer.detectProjectTypes();
-            const templates = analyzer.getConfigTemplates();
-            
-            const applicableTemplates = templates.filter(template => 
-                detectedTypes.some(type => 
-                    type.detected && template.applicableTypes.includes(type.name)
-                )
-            );
-            
-            if (applicableTemplates.length > 0) {
-                const selectedTemplate = await vscode.window.showQuickPick(
-                    applicableTemplates.map(template => ({
-                        label: template.name,
-                        description: template.description,
-                        template: template
-                    })),
-                    { placeHolder: 'Select a configuration template to apply' }
-                );
-                
-                if (selectedTemplate) {
-                    vscode.commands.executeCommand('vscode-settings.applyConfigTemplate', selectedTemplate.template);
-                }
-            } else {
-                vscode.window.showInformationMessage('No specific recommendations available for this project type');
-            }
-        }
-    });
-
-    const refreshProjectAnalysisCommand = vscode.commands.registerCommand('vscode-settings.refreshProjectAnalysis', () => {
-        projectRecommendationsProvider.refresh();
-        vscode.window.showInformationMessage('Project analysis refreshed');
-    });
-
     context.subscriptions.push(
         openConfigFileCommand,
         createConfigFileCommand,
-        applyConfigTemplateCommand,
-        createRecommendedSettingsCommand,
-        refreshProjectAnalysisCommand,
         activeEditorDisposable,
         selectionChangeDisposable,
         documentChangeDisposable,
