@@ -2,7 +2,7 @@
   "name": "vscode-settings",
   "displayName": "VS Code Settings Helper",
   "description": "A comprehensive VS Code extension for managing workspace configuration files with intelligent property assistance",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "publisher": "gorebill",
   "author": {
     "name": "gorebill",
